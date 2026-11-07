@@ -1,0 +1,65 @@
+{
+  "name": "@webship/workspace-drupal-themes",
+  "version": "1.0.0",
+  "description": "The Drupal themes workspace for Webship Workspace: the `themes/` folder (type code), its settings file, its 18 commands and its docs, activated as a plugin.",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "private": true,
+  "license": "ISC",
+  "repository": "github:webship/workspace-drupal-themes",
+  "files": [
+    "dist/src",
+    "commands",
+    "config",
+    "docs",
+    "features",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepare": "npm run build",
+    "test": "npm run build && node --test dist/tests/*.test.js",
+    "lint": "tsc -p tsconfig.json --noEmit"
+  },
+  "workspacePlugin": {
+    "name": "drupal-themes",
+    "label": "Drupal themes",
+    "workspace": {
+      "key": "themes",
+      "settingsTemplate": "config/workspace.themes.settings.yml",
+      "files": [
+        "commands/cmd-all-back-end-build-themes.sh",
+        "commands/cmd-all-back-end-install-themes.sh",
+        "commands/cmd-all-front-end-build-themes.sh",
+        "commands/cmd-all-front-end-install-themes.sh",
+        "commands/cmd-backup-theme.sh",
+        "commands/cmd-build-admin-theme.sh",
+        "commands/cmd-build-drupal-template.sh",
+        "commands/cmd-build-theme.sh",
+        "commands/cmd-install-admin-theme.sh",
+        "commands/cmd-install-theme.sh",
+        "commands/cmd-tools-checks.sh",
+        "commands/cmd-tools-gitlab-ci-local.sh",
+        "commands/cmd-tools-graphify.sh",
+        "commands/cmd-tools-obsidian.sh",
+        "commands/cmd-tools-ragify.sh",
+        "commands/cmd-tools-reclaim.sh",
+        "commands/cmd-tools-remove.sh",
+        "commands/cmd-tools-update-all.sh"
+      ],
+      "docs": [
+        "docs/AGENTS.md",
+        "docs/CLAUDE.md",
+        "docs/README.md"
+      ]
+    },
+    "features": [
+      "features/drupal-themes.feature"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@webship/workspace-plugin-api": "github:webship/workspace-plugin-api#1.0.x",
+    "typescript": "^5.9.0"
+  }
+}
