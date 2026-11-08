@@ -1,4 +1,4 @@
-# @webship/workspace-drupal-themes
+# @webship.co/workspace-drupal-themes
 
 The **Drupal themes** workspace of the [Webship Workspace](https://github.com/webship/workspace) dashboard:
 the `themes/` folder (type `code`), its settings file (`core/config/workspace.themes.settings.yml`),
