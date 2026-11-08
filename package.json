@@ -1,7 +1,7 @@
 {
   "name": "@webship.co/workspace-drupal-themes",
   "version": "1.0.0-alpha1",
-  "description": "The Drupal themes workspace for Webship Workspace: the `themes/` folder (type code), its settings file, its 18 commands and its docs, activated as a plugin.",
+  "description": "The Drupal themes workspace for Webship Workspace: the `themes/` folder (type code), its settings file, its 0 commands and its docs, activated as a plugin.",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
   "license": "ISC",
@@ -29,26 +29,7 @@
     "workspace": {
       "key": "themes",
       "settingsTemplate": "config/workspace.themes.settings.yml",
-      "files": [
-        "commands/cmd-all-back-end-build-themes.sh",
-        "commands/cmd-all-back-end-install-themes.sh",
-        "commands/cmd-all-front-end-build-themes.sh",
-        "commands/cmd-all-front-end-install-themes.sh",
-        "commands/cmd-backup-theme.sh",
-        "commands/cmd-build-admin-theme.sh",
-        "commands/cmd-build-drupal-template.sh",
-        "commands/cmd-build-theme.sh",
-        "commands/cmd-install-admin-theme.sh",
-        "commands/cmd-install-theme.sh",
-        "commands/cmd-tools-checks.sh",
-        "commands/cmd-tools-gitlab-ci-local.sh",
-        "commands/cmd-tools-graphify.sh",
-        "commands/cmd-tools-obsidian.sh",
-        "commands/cmd-tools-ragify.sh",
-        "commands/cmd-tools-reclaim.sh",
-        "commands/cmd-tools-remove.sh",
-        "commands/cmd-tools-update-all.sh"
-      ],
+      "files": [],
       "docs": [
         "docs/AGENTS.md",
         "docs/CLAUDE.md",
