@@ -20,6 +20,20 @@ The settings file and the docs are placed once and never overwritten: they hold 
 
 | Command |
 | --- |
-| (none) |
+| `cmd-all-back-end-build-themes.sh` |
+| `cmd-all-back-end-install-themes.sh` |
+| `cmd-all-front-end-build-themes.sh` |
+| `cmd-all-front-end-install-themes.sh` |
+| `cmd-backup-theme.sh` |
+| `cmd-build-admin-theme.sh` |
+| `cmd-build-drupal-template.sh` |
+| `cmd-build-theme.sh` |
+| `cmd-install-admin-theme.sh` |
+| `cmd-install-theme.sh` |
+| `cmd-tools-checks.sh` |
+| `cmd-tools-gitlab-ci-local.sh` |
+| `cmd-tools-reclaim.sh` |
+| `cmd-tools-remove.sh` |
+| `cmd-tools-update-all.sh` |
 
 The bash functions these commands call live in the dashboard's `core/scripts/functions`.
