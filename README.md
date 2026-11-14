@@ -16,6 +16,10 @@ bash core/scripts/plugins.sh --install drupal-themes      # the folder, its sett
 The settings file and the docs are placed once and never overwritten: they hold what you put there.
 `--deactivate` takes the workspace off the list; the folder and its content stay.
 
+## What it goes with
+
+The folder needs no other plugin. One of its commands, `cmd-tools-update-all.sh`, still runs `composer` on the machine instead of in a project's container, so the manifest names it as a command a part of the plugin uses (`suggests.commands`): `bash core/scripts/plugins.sh --check drupal-themes` says whether it is there (https://getcomposer.org/download/), and nothing is installed for you. Everything else here runs through the container tool the workspace already needs.
+
 ## The commands
 
 | Command |

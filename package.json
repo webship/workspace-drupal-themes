@@ -26,6 +26,14 @@
   "workspacePlugin": {
     "name": "drupal-themes",
     "label": "Drupal themes",
+    "suggests": {
+      "commands": [
+        {
+          "command": "composer",
+          "hint": "https://getcomposer.org/download/"
+        }
+      ]
+    },
     "workspace": {
       "key": "themes",
       "settingsTemplate": "config/workspace.themes.settings.yml",
