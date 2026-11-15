@@ -41,3 +41,13 @@ bash cmd-tools-update-all.sh                          # Find the workspace tooli
 
 Every one locates the workspace from its own path, so there is nothing to export and nothing to
 install. `--help` on any of them lists its arguments.
+
+## AI items for this folder
+
+The plugin of this folder (`@webship.co/workspace-drupal-themes`) places its own AI items in the AI folders of the
+workspace, when they are active:
+
+- `themes-maintainer` (`ai-agents/`): Works on a Drupal theme in `themes/` and brings it to green before a push: its checks, its pipeline on this machine, a backup; knows which commands still run on the host and never runs one unasked
+- `themes-workflow` (`ai-skills/`): How work is done in `themes/`: see what is declared, check, run the pipeline locally, push when green; every command with its flags, the ones that run on the host, the settings keys
+- `/themes-check` (`ai-commands/`): `/themes-check <theme> [checks]`: prints the plan, runs the declared checks and says what is red and why
+- `themes-green-gate` (`ai-prompts/`): A new session that runs a theme's checks and its pipeline on this machine and reports green or red
