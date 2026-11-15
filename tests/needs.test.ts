@@ -12,8 +12,9 @@ const PKG = fs.existsSync(path.join(__dirname, '..', 'package.json')) ? path.joi
 const manifest = JSON.parse(fs.readFileSync(path.join(PKG, 'package.json'), 'utf8')).workspacePlugin;
 const walk = (dir: string): string[] => fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(path.join(dir, e.name)) : [path.join(dir, e.name)]));
 
-test("the manifest says what the plugin goes with, and needs nothing", () => {
-  assert.deepStrictEqual(manifest.needs, undefined);
+test("the manifest says what the plugin needs (the AI folder of each kind of item it ships) and what it goes with", () => {
+  assert.deepStrictEqual(manifest.needs, ['ai-agents', 'ai-skills', 'ai-commands', 'ai-prompts']);
+  for (const [kind, folder] of Object.entries({ agents: 'ai-agents', skills: 'ai-skills', commands: 'ai-commands', prompts: 'ai-prompts' })) assert.ok(manifest.ai[kind].length > 0 && manifest.needs.includes(folder), `it ships ${kind}, which is why it needs ${folder}`);
   assert.deepStrictEqual(manifest.suggests, {'commands': [{'command': 'composer', 'hint': 'https://getcomposer.org/download/'}]});
   const sources = ['commands', 'scripts', 'src'].flatMap((d) => (fs.existsSync(path.join(PKG, d)) ? walk(path.join(PKG, d)) : [])).map((f) => fs.readFileSync(f, 'utf8')).join('\n');
   for (const command of ['composer']) assert.match(sources, new RegExp(`(^|[^A-Za-z0-9_-])${command}([^A-Za-z0-9_-]|$)`, 'm'), `${command} is called by the plugin`);
