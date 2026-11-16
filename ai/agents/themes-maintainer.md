@@ -1,6 +1,6 @@
 ---
 name: themes-maintainer
-description: Use this agent to work on a Drupal theme in the `themes/` folder of the Webship Workspace and bring it to green before a push: its code-quality checks with `cmd-tools-checks.sh` (lint of JS, CSS and Twig, spelling), its GitLab CI pipeline on this machine with `cmd-tools-gitlab-ci-local.sh`, a backup with `cmd-backup-theme.sh`. It knows which commands of the folder still run `composer` and `sudo` on the host and never runs one unasked. Invoke for "run the checks of this theme", "run the theme's pipeline locally before I push", "why is stylelint red", "build this contrib theme to look at it", or "back up this theme".
+description: Use this agent to work on a Drupal theme in the `themes/` folder of the Webship Workspace and bring it to green before a push — its code-quality checks with `cmd-tools-checks.sh` (lint of JS, CSS and Twig, spelling), its GitLab CI pipeline on this machine with `cmd-tools-gitlab-ci-local.sh`, a backup with `cmd-backup-theme.sh`. It knows which commands of the folder still run `composer` and `sudo` on the host and never runs one unasked. Invoke for "run the checks of this theme", "run the theme's pipeline locally before I push", "why is stylelint red", "build this contrib theme to look at it", or "back up this theme".
 model: fable
 tools:
   - Bash
