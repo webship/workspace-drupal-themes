@@ -24,9 +24,13 @@ tar -cvzf ${backups}/${doc_name}/${doc_name}---${PROJECT_NAME}--${backup_time}.t
 # webship/workspace#937) writes the dump of the platform whose plugin keeps the database, else DDEV's export, and
 # nothing, which it says, for a theme that is not a project with a database.
 base="${backups}/${doc_name}/${doc_name}---${PROJECT_NAME}--${backup_time}-db" ;
+# A dump an export began and did not finish, empty or cut short, is not left behind for a restore to import; a file
+# that was there before is not this backup's to remove.
+dump_was_there='no' ;
+[ -e "${base}.sql.gz" ] && dump_was_there='yes' ;
 if declare -F export_project_db > /dev/null ; then
   if ! (cd ${PROJECT_NAME} && export_project_db "${base}") ; then
-    [ -s "${base}.sql.gz" ] || rm -f "${base}.sql.gz" ;
+    [ "${dump_was_there}" = 'yes' ] || rm -f "${base}.sql.gz" ;
     echo "The database of ${PROJECT_NAME} could not be exported: only its files are backed up." ;
     exit 1 ;
   fi
@@ -54,7 +58,7 @@ if runs_without_db "${PROJECT_NAME}" ; then
   exit 0 ;
 fi
 if ! (cd ${PROJECT_NAME} && ddev export-db --file="${base}.sql.gz") ; then
-  [ -s "${base}.sql.gz" ] || rm -f "${base}.sql.gz" ;
+  [ "${dump_was_there}" = 'yes' ] || rm -f "${base}.sql.gz" ;
   echo "The database of ${PROJECT_NAME} could not be exported: only its files are backed up." ;
   exit 1 ;
 fi
